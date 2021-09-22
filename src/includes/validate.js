@@ -1,22 +1,3 @@
-## Form validation with [Vee-Validate](https://vee-validate.logaretm.com/v4/)
-
- ## **Installation**
-
-    yarn add vee-validate@next
-    yarn add @vee-validate/rules
-
-##**Configuration:**
-
-**Global use**
-
->`main.js`
-```ruby
-import VeeValidatePlugin from './includes/validation';
-app.use(VeeValidatePlugin);
-```
-**Settings file**
->  `src/includes/validation.js`
-```ruby
 // import the vee components
 import {
   Form as VeeForm,
@@ -111,42 +92,3 @@ export default {
     });
   },
 };
-
-```
-
-**Template:**
-```ruby
-<template>
-  <vee-form
-    :validation-schema="validationSchema"
-    :initial-values="someData"
-    @submit="submit"
-  >
-    <div>
-      <label>Name</label>
-      <vee-field type="text" name="name" placeholder="Enter Name" />
-      <ErrorMessage name="name" />
-    </div>
-    <button type="submit">
-      Submit
-    </button>
-  </vee-form>
-</template>
-
-<script>
-export default {
-  name: 'Example',
-  data() {
-    return {
-      validationSchema: {
-        name: 'required|min:3|max:50|alpha_spaces',
-      },
-      someData: [],
-    };
-  },
-  methods: {
-    submit() {},
-  },
-};
-</script>
-```
